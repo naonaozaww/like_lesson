@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   end
 
   def likes
-    @like_posts = current_user.like_posts
+    @like_posts = current_user.like_posts.includes(:likes)
   end
 
   private
