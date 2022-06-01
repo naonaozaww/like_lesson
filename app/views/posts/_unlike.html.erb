@@ -1,0 +1,1 @@
+<%= link_to 'UnLike', like_path(post.likes.find {|p| p.user_id == current_user.id}), id: 'js-unlike-button-for-#{post.id}', method: :delete %>

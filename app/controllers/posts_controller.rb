@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = Post.all.includes(:likes)
   end
 
   # GET /posts/1
@@ -41,6 +41,10 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_url, success: 'Post was successfully destroyed.'
+  end
+
+  def likes
+    @like_posts = current_user.like_posts
   end
 
   private
